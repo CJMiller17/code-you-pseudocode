@@ -1,0 +1,55 @@
+// Guess the Number Game
+START
+    SET randomNumber to a random integer between 1 and 10
+    SET attempts to 0
+    WHILE attempts < 3
+        PROMPT player to guess a number between 1 and 10
+        IF playerGuess == randomNumber THEN
+            PRINT "Congratulations! You've guessed the number!"
+            BREAK
+        ELSE
+            PRINT "Wrong guess! Try again."
+        ENDIF
+        INCREMENT attempts
+    ENDWHILE
+    IF attempts == 3 THEN
+        PRINT "Sorry, you've run out of attempts! The correct number was " + randomNumber
+    ENDIF
+END
+
+
+// Find the Spot Mapping Application
+START
+    SET currentPosition to (0, 0) // Starting position in the warehouse
+    SET targetPosition to the coordinates of the item in the warehouse (e.g., 5, 7)
+    
+    WHILE currentPosition != targetPosition
+        PROMPT customer for direction to move (north, south, east, west)
+        
+        IF direction == "north" THEN
+            DECREMENT y-coordinate of currentPosition
+        ELSE IF direction == "south" THEN
+            INCREMENT y-coordinate of currentPosition
+        ELSE IF direction == "east" THEN
+            INCREMENT x-coordinate of currentPosition
+        ELSE IF direction == "west" THEN
+            DECREMENT x-coordinate of currentPosition
+        ENDIF
+        
+        PRINT currentPosition
+    ENDWHILE
+    
+    PRINT "You have arrived at the correct location!"
+END
+
+
+// Product Package Counter
+START
+    SET productPackage to 2
+    SET caseLimit to 50
+    
+    WHILE productPackage <= caseLimit
+        PRINT productPackage
+        INCREMENT productPackage by 2
+    ENDWHILE
+END
